@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Outfit', 'Inter', sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #121214;
+  border: 2px solid #050505;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1f1f23;
+}
+
+/* Base Web Grid Layout */
+.bg-grid-pattern {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* Glassmorphism Panel styles */
+.glass-panel {
+  background: rgba(10, 10, 12, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(15, 15, 20, 0.65);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px -15px rgba(0, 210, 255, 0.08);
+  transform: translateY(-4px);
+}
+
+/* Text Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 40%, #c084fc 80%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-neon {
+  background: linear-gradient(135deg, #00d2ff 0%, #9d4edd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-neon {
+  background: linear-gradient(135deg, #00d2ff 0%, #9d4edd 100%);
+}
+
+.glow-btn {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+.glow-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00d2ff 0%, #9d4edd 100%);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(10px);
+}
+.glow-btn:hover::after {
+  opacity: 0.6;
+}
+
+/* Custom animation extensions */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Swiper / testimonial slider overrides */
+.testimonial-card {
+  transition: all 0.4s ease;
+}
+.testimonial-card.active {
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(0, 210, 255, 0.3);
+}
